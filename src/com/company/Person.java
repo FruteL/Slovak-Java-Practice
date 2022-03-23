@@ -3,7 +3,7 @@ package com.company;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-public class Persone {
+public class Person implements IFormat{
 
     private String firstName;
     private String secondName;
@@ -22,16 +22,16 @@ public class Persone {
     private int income;
 
 
-    public Persone(String firstName, String secondName, LocalDate dateofBirthd) {
+    public Person(String firstName, String secondName, LocalDate dateofBirthd) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.dateofBirthd = dateofBirthd;
     }
 
-    public Persone() {
+    public Person() {
     }
 
-    public Persone(String firstName, String secondName, String patronymic, LocalDate dateofBirthd, long passportId, String countryFrom, String cityFrom, String street, short numberOfHouse, String phoneNumber, short growth, short weight, boolean isLive, boolean haveWork, int income) {
+    public Person(String firstName, String secondName, String patronymic, LocalDate dateofBirthd, long passportId, String countryFrom, String cityFrom, String street, short numberOfHouse, String phoneNumber, short growth, short weight, boolean isLive, boolean haveWork, int income) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.patronymic = patronymic;
@@ -187,5 +187,69 @@ public class Persone {
     public int getAge() {
         int age = (int) ChronoUnit.YEARS.between(LocalDate.now(), getDateofBirthd());
         return age;
+    }
+
+    @Override
+    public String toJSON() {
+        return "{" +
+                "\"firstName\": " + "\"" + firstName + '\"' +
+                ", \"secondName\": " + "\"" + secondName + "\"" +
+                ", \"patronymic\": " + "\"" + patronymic + "\"" +
+                ", \"dateofBirthd\": " + "\"" + dateofBirthd + "\"" +
+                ", \"passportId\": " + passportId +
+                ", \"CountryFrom\": "+ "\"" + CountryFrom + "\"" +
+                ", \"CityFrom\": " + "\"" + CityFrom + "\"" +
+                ", \"street\": "  + "\"" + street + "\"" +
+                ", \"numberOfHouse\": " + numberOfHouse +
+                ", \"phoneNumber\": " + "\"" + phoneNumber +"\"" +
+                ", \"growth\": " + growth +
+                ", \"weight\": " + weight +
+                ", \"isLive\": " + isLive +
+                ", \"haveWork\": " + haveWork +
+                ", \"income\": " + income +
+                '}';
+    }
+
+    @Override
+    public String toXML() {
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+                "\n <Person>" +
+                "\n\t<firstName>" + firstName + "</firstName>" +
+                "\n\t<secondName>"+ secondName+ "</secondName>" +
+                "\n\t<patronymic>"+ patronymic + "</patronymic>"+
+                "\n\t<dateofBirthd>"+ dateofBirthd +"</dateofBirthd>" +
+                "\n\t<passportId>"+ passportId + "</passportId>" +
+                "\n\t<CountryFrom>"+ CountryFrom +"</CountryFrom>" +
+                "\n\t<CityFrom>"+CityFrom + "</CityFrom>"+
+                "\n\t<street>"+street+"</street>"+
+                "\n\t<numberOfHouse>"+numberOfHouse +"</numberOfHouse>"+
+                "\n\t<phoneNumber>"+phoneNumber+"</phoneNumber>"+
+                "\n\t<growth>"+growth + "</growth>"+
+                "\n\t<weight>"+ weight + "</weight>"+
+                "\n\t<isLive>"+ isLive +"</isLive>"+
+                "\n\t<haveWork>"+haveWork+"</haveWork>"+
+                "\n\t<income>"+income+"</income>"+
+                "\n </Person>";
+    }
+
+    @Override
+    public String toString() {
+        return "Persone{" +
+                "firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", dateofBirthd=" + dateofBirthd +
+                ", passportId=" + passportId +
+                ", CountryFrom='" + CountryFrom + '\'' +
+                ", CityFrom='" + CityFrom + '\'' +
+                ", street='" + street + '\'' +
+                ", numberOfHouse=" + numberOfHouse +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", growth=" + growth +
+                ", weight=" + weight +
+                ", isLive=" + isLive +
+                ", haveWork=" + haveWork +
+                ", income=" + income +
+                '}';
     }
 }

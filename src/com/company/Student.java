@@ -2,7 +2,7 @@ package com.company;
 
 import java.time.LocalDate;
 
-public class Student extends Persone{
+public class Student extends Person {
 
     private String university;
     private long studentID;

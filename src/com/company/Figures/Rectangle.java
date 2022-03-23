@@ -2,7 +2,7 @@ package com.company.Figures;
 
 import java.util.Objects;
 
-public class Rectangle {
+public class Rectangle implements IFigure{
 
     private int lenght;
     private int width;
@@ -15,11 +15,11 @@ public class Rectangle {
         this.width = width;
     }
 
-    public int area() {
+    public double getArea() {
         return this.getWidth() * this.getLenght();
     }
 
-    public int perimeter() {
+    public double getPerimeter() {
         return 2 * (getLenght() * getWidth());
     }
 
