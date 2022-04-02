@@ -141,4 +141,63 @@ public class Student extends Person {
                 ", expelled=" + expelled +
                 '}';
     }
+
+    public static class Builder{
+
+        Student student;
+
+        public Builder() {
+        }
+
+        public Builder setUniversity(String university){
+            this.student.university = university;
+            return this;
+        }
+
+        public Builder setStudentID(long studentID){
+            this.student.studentID = studentID;
+            return this;
+        }
+
+        public Builder setLibraryIDCard(long setLibraryIDCard){
+            this.student.libraryCardId = setLibraryIDCard;
+            return this;
+        }
+
+        public Builder setFaculty(String faculty){
+            this.student.faculty = faculty;
+            return this;
+        }
+
+        public Builder setGroup (String group){
+            this.student.group = group;
+            return this;
+        }
+
+        public Builder setYear(byte year){
+            this.student.year = year;
+            return this;
+        }
+
+        public Builder setMissLessons(int missLessons){
+            this.student.missLessons = missLessons;
+            return this;
+        }
+
+        public  Builder setAverageMark(byte averageMark){
+            this.student.averageMark = averageMark;
+            return this;
+        }
+
+        public Builder setGroupLeader(boolean groupLeader){
+            this.student.groupLeader = groupLeader;
+            return this;
+        }
+
+        public Builder setExpelled (boolean expelled){
+            this.student.expelled = expelled;
+            return this;
+        }
+
+    }
 }
