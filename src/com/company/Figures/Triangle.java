@@ -2,7 +2,7 @@ package com.company.Figures;
 
 import java.util.Objects;
 
-public class Triangle {
+public class Triangle implements IFigure {
 
     private int sideA;
     private int sideB;
@@ -17,22 +17,22 @@ public class Triangle {
         this.sideC = sideC;
     }
 
-    public int perimeter(){
+    public double getPerimeter(){
         return sideA + sideB + sideC;
     }
 
     public double height(){
-        double p = (double)perimeter()/2;
+        double p = (double)getPerimeter()/2;
         double h = Math.sqrt(p * (p-sideA) * (p-sideB) * (p-sideC)) * 2 / sideA;
         return h;
     }
 
-    public double area(){
+    public double getArea(){
         return height() * sideA / 2;
     }
 
     public double inscribedRadius(){
-        double p = (double) perimeter()/2;
+        double p = (double) getPerimeter()/2;
         double r = Math.sqrt((p-sideA) * (p-sideB) * (p-sideC)/p);
         return r;
     }

@@ -9,9 +9,9 @@ public class Monitor extends Rectangle {
     private boolean audio;
     private byte responseTime;
     private short refreshRate;
-    private short price;
     private String conectionType;
     private String color;
+    private byte warranty;
 
     public Monitor(int lenght, int width) {
         super(lenght, width);
@@ -20,27 +20,52 @@ public class Monitor extends Rectangle {
     public Monitor() {
     }
 
-    public Monitor(String brand, String country, boolean audio, byte responseTime, short refreshRate, short price, String conectionType, String color) {
-        this.brand = brand;
-        this.country = country;
-        this.audio = audio;
-        this.responseTime = responseTime;
-        this.refreshRate = refreshRate;
-        this.price = price;
-        this.conectionType = conectionType;
-        this.color = color;
-    }
-
-    public Monitor(int lenght, int width, String brand, String country, boolean audio, byte responseTime, short refreshRate, short price, String conectionType, String color) {
+    public Monitor(int lenght, int width, String brand, String country, boolean audio, byte responseTime, short refreshRate, String conectionType, String color, byte warranty) {
         super(lenght, width);
         this.brand = brand;
         this.country = country;
         this.audio = audio;
         this.responseTime = responseTime;
         this.refreshRate = refreshRate;
-        this.price = price;
         this.conectionType = conectionType;
         this.color = color;
+        this.warranty = warranty;
+    }
+
+    public double createPrice(){
+        double price = 0;
+        if (diagonal() > 24){
+            price+= 1000;
+        }
+        else if(diagonal() > 18){
+            price+= 500;
+        }
+        else {
+            price += 100;
+        }
+        if (getBrand().equals("LG")){
+            price += 500;
+        }
+        if (getBrand().equals("Acer")){
+            price += 750;
+        }
+        if (getBrand().equals("Sumsung")){
+            price += 1000;
+        }
+        if(isAudio()){
+            price+= 250;
+        }
+        if(refreshRate == 60){
+            price+=500;
+        }
+        else if (refreshRate == 144){
+            price+=1000;
+        }
+        else{
+            price+= 200;
+        }
+
+        return price;
     }
 
     public String getBrand() {
@@ -83,14 +108,6 @@ public class Monitor extends Rectangle {
         this.refreshRate = refreshRate;
     }
 
-    public short getPrice() {
-        return price;
-    }
-
-    public void setPrice(short price) {
-        this.price = price;
-    }
-
     public String getConectionType() {
         return conectionType;
     }
@@ -115,16 +132,11 @@ public class Monitor extends Rectangle {
                 ", audio=" + audio +
                 ", responseTime=" + responseTime +
                 ", refreshRate=" + refreshRate +
-                ", price=" + price +
                 ", conectionType='" + conectionType + '\'' +
                 ", color='" + color + '\'' +
+                ", warranty=" + warranty +
                 '}';
     }
 
-    public void switchON(){
-        System.out.println("Monitor is working");
-    }
-    public void switchOff(){
-        System.out.println("Monitor is sleeping");
-    }
+
 }
