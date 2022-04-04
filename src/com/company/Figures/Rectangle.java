@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public class Rectangle implements IFigure{
 
-    private int lenght;
-    private int width;
+    private double lenght;
+    private double width;
 
     public Rectangle() {
     }
 
-    public Rectangle(int lenght, int width) {
+    public Rectangle(double lenght, double width) {
         this.lenght = lenght;
         this.width = width;
     }
@@ -35,19 +35,19 @@ public class Rectangle implements IFigure{
         return (double) getWidth()/2;
     }
 
-    public int getLenght() {
+    public double getLenght() {
         return lenght;
     }
 
-    public void setLenght(int lenght) {
+    public void setLenght(double lenght) {
         this.lenght = lenght;
     }
 
-    public int getWidth() {
+    public double getWidth() {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
