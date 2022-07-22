@@ -1,6 +1,6 @@
-package com.company;
+package main.java.com.company;
 
-import com.company.Figures.Rectangle;
+import main.java.com.company.Figures.Rectangle;
 
 public class Monitor extends Rectangle {
 

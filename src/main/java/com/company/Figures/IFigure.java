@@ -1,4 +1,4 @@
-package com.company.Figures;
+package main.java.com.company.Figures;
 
 public interface IFigure {
     double getArea();

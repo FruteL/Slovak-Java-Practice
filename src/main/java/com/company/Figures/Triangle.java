@@ -1,4 +1,4 @@
-package com.company.Figures;
+package main.java.com.company.Figures;
 
 import java.util.Objects;
 
@@ -21,20 +21,25 @@ public class Triangle implements IFigure {
         return sideA + sideB + sideC;
     }
 
-    public double height(){
+    public double getHeight(){
         double p = (double)getPerimeter()/2;
         double h = Math.sqrt(p * (p-sideA) * (p-sideB) * (p-sideC)) * 2 / sideA;
         return h;
     }
 
     public double getArea(){
-        return height() * sideA / 2;
+        return getHeight() * sideA / 2;
     }
 
     public double inscribedRadius(){
         double p = (double) getPerimeter()/2;
         double r = Math.sqrt((p-sideA) * (p-sideB) * (p-sideC)/p);
         return r;
+    }
+
+    public double getCorner(){
+        double cos = (Math.pow(sideB,2)+Math.pow(sideC,2)-Math.pow(sideA,2))/(2 * sideC * sideB);
+        return Math.acos(cos);
     }
 
     public double getSideA() {
